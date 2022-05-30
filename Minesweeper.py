@@ -94,36 +94,40 @@ def main():
 def check(x, y, width, height):
     global noss
     global coords
-    if not coords[x][y][3]:
-        noss -= 1
-        if coords[x][y][2] == 0:
-            coords[x][y][3] = True
-            if not x - 1 < 0:
-                if coords[x - 1][y][2] == 0: check(x - 1, y, width, height)
-                coords[x - 1][y][3] = True
-            if not x + 1 > width - 1:
-                if coords[x + 1][y][2] == 0: check(x + 1, y, width, height)
-                coords[x + 1][y][3] = True
-            if not y - 1 < 0:
-                if coords[x][y - 1][2] == 0: check(x, y - 1, width, height)
-                coords[x][y - 1][3] = True
-            if not y + 1 > height - 1:
-                if coords[x][y + 1][2] == 0: check(x, y + 1, width, height)
-                coords[x][y + 1][3] = True
-            if not x - 1 < 0 and not y - 1 < 0:
-                if coords[x - 1][y - 1][2] == 0: check(x - 1, y - 1, width, height)
-                coords[x - 1][y - 1][3] = True
-            if not x + 1 > width - 1 and not y - 1 < 0:
-                if coords[x + 1][y - 1][2] == 0: check(x + 1, y - 1, width, height)
-                coords[x + 1][y - 1][3] = True
-            if not x - 1 < 0 and not y + 1 > height - 1:
-                if coords[x - 1][y + 1][2] == 0: check(x - 1, y + 1, width, height)
-                coords[x - 1][y + 1][3] = True
-            if not x + 1 > width - 1 and not y + 1 > height - 1:
-                if coords[x + 1][y + 1][2] == 0: check(x + 1, y + 1, width, height)
-                coords[x + 1][y + 1][3] = True
-        else:
-            coords[x][y][3] = True
+    try:
+        if not coords[x][y][3]:
+            noss -= 1
+            if coords[x][y][2] == 0:
+                coords[x][y][3] = True
+                if not x - 1 < 0:
+                    if coords[x - 1][y][2] == 0: check(x - 1, y, width, height)
+                    coords[x - 1][y][3] = True
+                if not x + 1 > width - 1:
+                    if coords[x + 1][y][2] == 0: check(x + 1, y, width, height)
+                    coords[x + 1][y][3] = True
+                if not y - 1 < 0:
+                    if coords[x][y - 1][2] == 0: check(x, y - 1, width, height)
+                    coords[x][y - 1][3] = True
+                if not y + 1 > height - 1:
+                    if coords[x][y + 1][2] == 0: check(x, y + 1, width, height)
+                    coords[x][y + 1][3] = True
+                if not x - 1 < 0 and not y - 1 < 0:
+                    if coords[x - 1][y - 1][2] == 0: check(x - 1, y - 1, width, height)
+                    coords[x - 1][y - 1][3] = True
+                if not x + 1 > width - 1 and not y - 1 < 0:
+                    if coords[x + 1][y - 1][2] == 0: check(x + 1, y - 1, width, height)
+                    coords[x + 1][y - 1][3] = True
+                if not x - 1 < 0 and not y + 1 > height - 1:
+                    if coords[x - 1][y + 1][2] == 0: check(x - 1, y + 1, width, height)
+                    coords[x - 1][y + 1][3] = True
+                if not x + 1 > width - 1 and not y + 1 > height - 1:
+                    if coords[x + 1][y + 1][2] == 0: check(x + 1, y + 1, width, height)
+                    coords[x + 1][y + 1][3] = True
+            else:
+                coords[x][y][3] = True
+    except:
+        print("f")
+
 
 
 # def on_press(key):
